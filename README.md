@@ -1,6 +1,6 @@
 # Q-CTRL Pyquil Adaptor
 
-The aim of the Q-CTRL Pyquil Adapter package is to provide export functions allowing
+The aim of the Q-CTRL Pyquil Adaptor package is to provide export functions allowing
 users to deploy established error-robust quantum control protocols from the
 open literature and defined in Q-CTRL Open Controls on Rigetti quantum hardware 
 and simulators.
