@@ -25,7 +25,7 @@ from pyquil.gates import RX, RY, RZ, I
 from pyquil.quil import Pragma
 
 from qctrlopencontrols import DynamicDecouplingSequence
-import numpy as np
+
 from qctrlpyquil import convert_dds_to_pyquil_program
 
 def test_pyquil_program():
@@ -66,3 +66,4 @@ def test_pyquil_program():
 
 if __name__ == '__main__':
     test_pyquil_program()
+    

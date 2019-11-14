@@ -12,6 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+"""
+===========
+qctrlpyquil
+===========
+"""
+
 __version__ = "0.0.1"
 
 from .program import convert_dds_to_pyquil_program
