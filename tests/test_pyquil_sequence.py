@@ -15,7 +15,7 @@
 
 """
 ===================================
-Tests converstion to Pyquil program
+Tests conversion to Pyquil program
 ===================================
 """
 
