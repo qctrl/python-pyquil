@@ -30,7 +30,7 @@ from qctrlopencontrols.globals import (FIX_DURATION_UNITARY, INSTANT_UNITARY)
 from qctrlopencontrols.exceptions.exceptions import ArgumentsValueError
 
 
-def convert_dds_to_pyquil_program(  #pylint: disable=too-many-locals
+def convert_dds_to_pyquil_program(
         dynamic_decoupling_sequence,
         target_qubits=None,
         gate_time=0.1,
@@ -38,7 +38,8 @@ def convert_dds_to_pyquil_program(  #pylint: disable=too-many-locals
         algorithm=INSTANT_UNITARY):
 
     """Converts a Dynamic Decoupling Sequence into quantum program
-    as defined in Pyquil
+    as defined in Pyquil.
+
     Parameters
     ----------
     dynamic_decoupling_sequence : DynamicDecouplingSequence
@@ -58,11 +59,13 @@ def convert_dds_to_pyquil_program(  #pylint: disable=too-many-locals
         taking the amount of gate_time while 'instant unitary' assumes the sequence
         operations are instantaneous (and hence does not contribute to the delay between
         offsets). Defaults to 'instant unitary'.
+
     Returns
     -------
     pyquil.Program
         The Pyquil program containting gates specified by the rotations of
         dynamic decoupling sequence
+
     Raises
     ------
     ArgumentsValueError
