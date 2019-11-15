@@ -2,8 +2,12 @@ name: Push workflow
 
 on:
   push:
-    branches:
+    tags-ignore:
       - '**'
+    paths-ignore:         # Don't trigger on files that are updated by the CI
+      - 'pyproject.toml'  # Note changes to poetry.lock will still build
+      - 'setup.py'
+      - 'README.rst'
 
 jobs:
 
@@ -17,6 +21,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         source <(curl -sL http://ci.q-ctrl.com)
+        ./ci vault login -r ${{ secrets.VAULT_ROLE_ID }} -s ${{ secrets.VAULT_SECRET_ID }}        
         ./ci docker run asia.gcr.io/q-ctrl-api-development/python-37 /scripts/housekeeping.sh
 
   linting:
