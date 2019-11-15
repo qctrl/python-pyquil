@@ -2,6 +2,8 @@ name: Push workflow
 
 on:
   push:
+    branches:
+      - '**'
     tags-ignore:
       - '**'
     paths-ignore:         # Don't trigger on files that are updated by the CI
