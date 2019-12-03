@@ -38,7 +38,7 @@ def convert_dds_to_pyquil_program(
         algorithm=INSTANT_UNITARY):
 
     """Converts a Dynamic Decoupling Sequence into quantum program
-    as defined in Pyquil.
+    as defined in PyQuil.
 
     Parameters
     ----------
@@ -63,7 +63,7 @@ def convert_dds_to_pyquil_program(
     Returns
     -------
     pyquil.Program
-        The Pyquil program containting gates specified by the rotations of
+        The PyQuil program containing gates specified by the rotations of
         dynamic decoupling sequence
 
     Raises
