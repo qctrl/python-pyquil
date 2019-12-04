@@ -15,7 +15,7 @@
 
 """
 ===================================
-Tests conversion to Pyquil program
+Tests conversion to PyQuil program
 ===================================
 """
 
@@ -31,7 +31,7 @@ from qctrlpyquil import convert_dds_to_pyquil_program
 def test_pyquil_program():
 
     """Tests if the Dynamic Decoupling Sequence gives rise to Identity
-    operation in Pyquil
+    operation in PyQuil
     """
     _duration = 5e-6
     _offsets = [0, 1e-6, 2.5e-6, 4e-6, 5e-6]

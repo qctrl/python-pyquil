@@ -25,7 +25,7 @@ setup(
     long_description=readme,
     name='qctrl-pyquil',
     version='0.0.1',
-    description='Q-CTRL Pyquil Adapter',
+    description='Q-CTRL pyQuil Adapter',
     python_requires='<3.8,>=3.6.4',
     project_urls={"repository": "https://github.com/qctrl/python-pyquil"},
     author='Q-CTRL',

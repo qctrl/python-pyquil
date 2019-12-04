@@ -1,8 +1,8 @@
 
-Q-CTRL Pyquil Adaptor
+Q-CTRL pyQuil Adapter
 =====================
 
-The aim of the Q-CTRL Pyquil Adaptor package is to provide export functions allowing
+The aim of the Q-CTRL pyQuil Adapter package is to provide export functions allowing
 users to deploy established error-robust quantum control protocols from the
 open literature and defined in Q-CTRL Open Controls on Rigetti quantum hardware 
 and simulators.
@@ -22,14 +22,14 @@ Table of Contents
 Installation
 ------------
 
-Q-CTRL Pyquil Adaptor can be installed through ``pip`` or from source. We recommend
+Q-CTRL pyQuil Adapter can be installed through ``pip`` or from source. We recommend
 the ``pip`` distribution to get the most recent stable release. If you want the
 latest features then install from source.
 
 Requirements
 ^^^^^^^^^^^^
 
-To use Q-CTRL Pyquil Adaptor you will need an installation of Python. We
+To use Q-CTRL pyQuil Adapter you will need an installation of Python. We
 recommend using the `Anaconda <https://www.anaconda.com/>`_ distribution of
 Python. Anaconda includes standard numerical and scientific Python packages
 which are optimally compiled for your machine. Follow the `Anaconda
@@ -44,7 +44,7 @@ jupyter notebook editor <https://jupyter.org/install>`_ on its own.
 Using PyPi
 ^^^^^^^^^^
 
-Use ``pip`` to install the latest version of Q-CTRL Pyquil Adaptor.
+Use ``pip`` to install the latest version of Q-CTRL pyQuil Adapter.
 
 .. code-block:: shell
 

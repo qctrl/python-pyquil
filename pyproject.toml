@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "qctrl-pyquil"
 version = "0.0.1"
-description = "Q-CTRL Pyquil Adapter"
+description = "Q-CTRL pyQuil Adapter"
 license = "Apache-2.0"
 authors = ["Q-CTRL <support@q-ctrl.com>"]
 readme = "README.md"
