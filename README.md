@@ -1,8 +1,10 @@
 # Q-CTRL pyQuil Adapter
+[![Actions Status](https://github.com/qctrl/python-pyquil/workflows/Push%20workflow/badge.svg)](https://github.com/qctrl/python-pyquil/actions?query=workflow%3A"Push+workflow")
+[![Actions Status](https://github.com/qctrl/python-pyquil/workflows/Release%20workflow/badge.svg)](https://github.com/qctrl/python-pyquil/actions?query=workflow%3A"Release+workflow")
 
 The aim of the Q-CTRL pyQuil Adapter package is to provide export functions allowing
 users to deploy established error-robust quantum control protocols from the
-open literature and defined in Q-CTRL Open Controls on Rigetti quantum hardware 
+open literature and defined in Q-CTRL Open Controls on Rigetti quantum hardware
 and simulators.
 
 Anyone interested in quantum control is welcome to contribute to this project.
