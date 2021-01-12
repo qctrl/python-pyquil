@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "qctrl-pyquil"
-version = "0.0.4"
+version = "0.0.5"
 description = "Q-CTRL Python PyQuil"
 license = "Apache-2.0"
 authors = ["Q-CTRL <support@q-ctrl.com>"]
