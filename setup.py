@@ -25,7 +25,7 @@ setup(
     long_description=readme,
     name='qctrl-pyquil',
     version='0.0.4',
-    description='Q-CTRL PyQuil',
+    description='Q-CTRL Python PyQuil',
     python_requires='<3.9,>=3.6.4',
     project_urls={"homepage": "https://q-ctrl.com", "repository": "https://github.com/qctrl/python-pyquil"},
     author='Q-CTRL',
