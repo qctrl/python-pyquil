@@ -1,4 +1,4 @@
-# Q-CTRL PyQuil
+# Q-CTRL Python PyQuil
 
 The aim of the Q-CTRL pyQuil Adapter package is to provide export functions allowing
 users to deploy established error-robust quantum control protocols from the
