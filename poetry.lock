@@ -860,14 +860,14 @@ py = {version = "*", markers = "implementation_name == \"pypy\""}
 
 [[package]]
 name = "qctrl-open-controls"
-version = "8.5.2"
+version = "9.0.0"
 description = "Q-CTRL Python Open Controls"
 category = "main"
 optional = false
 python-versions = ">=3.7,<3.10"
 
 [package.dependencies]
-numpy = ">=1.16,<2.0"
+numpy = ">=1.20.0,<2.0.0"
 toml = ">=0.10.0,<0.11.0"
 
 [[package]]
@@ -1176,7 +1176,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.7,<3.9"
-content-hash = "088194f1b4b30bceca362bf67b787c3d7e2d9bf597ab1ea4f68ad0cd867c9131"
+content-hash = "fe93503bb41ef7af6d45cedfe7ed14e5bed1bf52f74918eb3618b69b7ac40e6e"
 
 [metadata.files]
 alabaster = [
@@ -1949,8 +1949,8 @@ pyzmq = [
     {file = "pyzmq-22.3.0.tar.gz", hash = "sha256:8eddc033e716f8c91c6a2112f0a8ebc5e00532b4a6ae1eb0ccc48e027f9c671c"},
 ]
 qctrl-open-controls = [
-    {file = "qctrl-open-controls-8.5.2.tar.gz", hash = "sha256:f4fc094d5b2fd49880c32c7b0eb961e6f12e6efef79bdbc26dc5c8cd96988b95"},
-    {file = "qctrl_open_controls-8.5.2-py3-none-any.whl", hash = "sha256:679af39902e465c9c4775d7daf00868c6ddb1e86645aecca5809f86ad8bbc967"},
+    {file = "qctrl-open-controls-9.0.0.tar.gz", hash = "sha256:d24ffe570df93eaea1b8e49c16821dc3ee7786859b64529bb2e6d5197dfd07df"},
+    {file = "qctrl_open_controls-9.0.0-py3-none-any.whl", hash = "sha256:c0eb18b74b90934712332b2564a18b66f970072b578cad29186f3ae57438702a"},
 ]
 qctrl-visualizer = [
     {file = "qctrl-visualizer-2.12.2.tar.gz", hash = "sha256:0f8109878b43789ac04465da1e39ebe6684b391eddca0f9eb809a14c7bddb809"},
