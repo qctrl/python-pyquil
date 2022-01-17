@@ -26,9 +26,10 @@ from pyquil.quil import Pragma
 
 from qctrlopencontrols import DynamicDecouplingSequence
 
-from qctrlopencontrols.globals import (FIX_DURATION_UNITARY, INSTANT_UNITARY)
-from qctrlopencontrols.exceptions.exceptions import ArgumentsValueError
+from qctrlopencontrols.exceptions import ArgumentsValueError
 
+FIX_DURATION_UNITARY = "fixed duration unitary"
+INSTANT_UNITARY = "instant unitary"
 
 def convert_dds_to_pyquil_program(
         dynamic_decoupling_sequence,
