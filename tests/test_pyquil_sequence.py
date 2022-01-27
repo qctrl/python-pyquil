@@ -1,4 +1,4 @@
-# Copyright 2021 Q-CTRL
+# Copyright 2022 Q-CTRL
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ from qctrlopencontrols import DynamicDecouplingSequence
 
 from qctrlpyquil import convert_dds_to_pyquil_program
 
+
 def test_pyquil_program():
 
     """Tests if the Dynamic Decoupling Sequence gives rise to Identity
@@ -43,17 +44,15 @@ def test_pyquil_program():
         offsets=_offsets,
         rabi_rotations=_rabi_rotations,
         azimuthal_angles=_azimuthal_angles,
-        detuning_rotations=_detuning_rotations)
+        detuning_rotations=_detuning_rotations,
+    )
 
-    program = convert_dds_to_pyquil_program(
-        sequence,
-        [0],
-        gate_time=1e-6)
+    program = convert_dds_to_pyquil_program(sequence, [0], gate_time=1e-6)
 
     assert len(program) == 13
     assert program[0] == Pragma("PRESERVE_BLOCK")
     assert program[-1] == Pragma("END_PRESERVE_BLOCK")
-    assert program[1] == RX(np.pi/2, 0)
+    assert program[1] == RX(np.pi / 2, 0)
     assert program[2] == I(0)
     assert program[3] == RX(np.pi / 2, 0)
     assert program[4] == I(0)
@@ -63,6 +62,6 @@ def test_pyquil_program():
     assert program[8] == I(0)
     assert program[9] == RX(np.pi / 2, 0)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     test_pyquil_program()
-    

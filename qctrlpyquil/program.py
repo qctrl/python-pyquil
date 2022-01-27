@@ -1,4 +1,4 @@
-# Copyright 2021 Q-CTRL
+# Copyright 2022 Q-CTRL
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -31,12 +31,14 @@ from qctrlopencontrols.exceptions import ArgumentsValueError
 FIX_DURATION_UNITARY = "fixed duration unitary"
 INSTANT_UNITARY = "instant unitary"
 
+
 def convert_dds_to_pyquil_program(
-        dynamic_decoupling_sequence,
-        target_qubits=None,
-        gate_time=0.1,
-        add_measurement=True,
-        algorithm=INSTANT_UNITARY):
+    dynamic_decoupling_sequence,
+    target_qubits=None,
+    gate_time=0.1,
+    add_measurement=True,
+    algorithm=INSTANT_UNITARY,
+):
 
     """Converts a Dynamic Decoupling Sequence into quantum program
     as defined in pyQuil.
@@ -90,32 +92,41 @@ def convert_dds_to_pyquil_program(
     """
 
     if dynamic_decoupling_sequence is None:
-        raise ArgumentsValueError('No dynamic decoupling sequence provided.',
-                                  {'dynamic_decoupling_sequence': dynamic_decoupling_sequence})
+        raise ArgumentsValueError(
+            "No dynamic decoupling sequence provided.",
+            {"dynamic_decoupling_sequence": dynamic_decoupling_sequence},
+        )
 
     if not isinstance(dynamic_decoupling_sequence, DynamicDecouplingSequence):
-        raise ArgumentsValueError('Dynamical decoupling sequence is not recognized.'
-                                  'Expected DynamicDecouplingSequence instance',
-                                  {'type(dynamic_decoupling_sequence)':
-                                       type(dynamic_decoupling_sequence)})
+        raise ArgumentsValueError(
+            "Dynamical decoupling sequence is not recognized."
+            "Expected DynamicDecouplingSequence instance",
+            {"type(dynamic_decoupling_sequence)": type(dynamic_decoupling_sequence)},
+        )
 
     target_qubits = target_qubits or [0]
 
     if gate_time <= 0:
         raise ArgumentsValueError(
-            'Time delay of identity gate must be greater than zero.',
-            {'gate_time': gate_time})
+            "Time delay of identity gate must be greater than zero.",
+            {"gate_time": gate_time},
+        )
 
     if np.any(target_qubits) < 0:
         raise ArgumentsValueError(
-            'Every target qubits index must be non-negative.',
-            {'target_qubits': target_qubits})
+            "Every target qubits index must be non-negative.",
+            {"target_qubits": target_qubits},
+        )
 
     if algorithm not in [FIX_DURATION_UNITARY, INSTANT_UNITARY]:
-        raise ArgumentsValueError('Algorithm must be one of {} or {}'.format(
-            INSTANT_UNITARY, FIX_DURATION_UNITARY), {'algorithm': algorithm})
+        raise ArgumentsValueError(
+            "Algorithm must be one of {} or {}".format(
+                INSTANT_UNITARY, FIX_DURATION_UNITARY
+            ),
+            {"algorithm": algorithm},
+        )
 
-    unitary_time = 0.
+    unitary_time = 0.0
     if algorithm == FIX_DURATION_UNITARY:
         unitary_time = gate_time
 
@@ -127,11 +138,14 @@ def convert_dds_to_pyquil_program(
 
     time_covered = 0
     program = Program()
-    program += Pragma('PRESERVE_BLOCK')
+    program += Pragma("PRESERVE_BLOCK")
 
     for offset, rabi_rotation, azimuthal_angle, detuning_rotation in zip(
-                list(offsets), list(rabi_rotations),
-                list(azimuthal_angles), list(detuning_rotations)):
+        list(offsets),
+        list(rabi_rotations),
+        list(azimuthal_angles),
+        list(detuning_rotations),
+    ):
 
         offset_distance = offset - time_covered
 
@@ -143,10 +157,13 @@ def convert_dds_to_pyquil_program(
                 "Offsets cannot be placed properly. Spacing between the rotations"
                 "is smaller than the time required to perform the rotation. Provide"
                 "a longer dynamic decoupling sequence or shorted gate time.",
-                {'dynamic_decoupling_sequence': dynamic_decoupling_sequence,
-                 'gate_time': gate_time})
+                {
+                    "dynamic_decoupling_sequence": dynamic_decoupling_sequence,
+                    "gate_time": gate_time,
+                },
+            )
 
-        while (time_covered+gate_time) <= offset:
+        while (time_covered + gate_time) <= offset:
             for qubit in target_qubits:
                 program += I(qubit)
             time_covered += gate_time
@@ -160,14 +177,16 @@ def convert_dds_to_pyquil_program(
         nonzero_pulse_counts = 3 - np.sum(zero_pulses)
         if nonzero_pulse_counts > 1:
             raise ArgumentsValueError(
-                'Open Controls support a sequence with one '
-                'valid rotation at any offset. Found a sequence '
-                'with multiple rotation operations at an offset.',
-                {'dynamic_decoupling_sequence': dynamic_decoupling_sequence},
-                extras={'offset': offset,
-                        'rabi_rotation': rabi_rotation,
-                        'azimuthal_angle': azimuthal_angle,
-                        'detuning_rotation': detuning_rotation}
+                "Open Controls support a sequence with one "
+                "valid rotation at any offset. Found a sequence "
+                "with multiple rotation operations at an offset.",
+                {"dynamic_decoupling_sequence": dynamic_decoupling_sequence},
+                extras={
+                    "offset": offset,
+                    "rabi_rotation": rabi_rotation,
+                    "azimuthal_angle": azimuthal_angle,
+                    "detuning_rotation": detuning_rotation,
+                },
             )
 
         for qubit in target_qubits:
@@ -178,17 +197,16 @@ def convert_dds_to_pyquil_program(
                     program += RX(rotations[0], qubit)
                 elif not np.isclose(rotations[1], 0.0):
                     program += RY(rotations[1], qubit)
-                elif not np.isclose(rotations[2], 0.):
+                elif not np.isclose(rotations[2], 0.0):
                     program += RZ(rotations[2], qubit)
 
         time_covered = offset + unitary_time
 
     if add_measurement:
-        readout = program.declare('ro', 'BIT', len(target_qubits))
+        readout = program.declare("ro", "BIT", len(target_qubits))
         for idx, qubit in enumerate(target_qubits):
             program += MEASURE(qubit, readout[idx])
 
-    program += Pragma('END_PRESERVE_BLOCK')
+    program += Pragma("END_PRESERVE_BLOCK")
 
     return program
-    
