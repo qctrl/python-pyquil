@@ -24,7 +24,7 @@ if os.path.exists(readme_path):
 setup(
     long_description=readme,
     name='qctrl-pyquil',
-    version='0.0.5',
+    version='0.0.6',
     description='Q-CTRL Python PyQuil',
     python_requires='<3.9,>=3.7.2',
     project_urls={"homepage": "https://q-ctrl.com", "repository": "https://github.com/qctrl/python-pyquil"},
