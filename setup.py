@@ -26,7 +26,7 @@ setup(
     name='qctrl-pyquil',
     version='0.0.5',
     description='Q-CTRL Python PyQuil',
-    python_requires='<3.9,>=3.7',
+    python_requires='<3.9,>=3.7.2',
     project_urls={"homepage": "https://q-ctrl.com", "repository": "https://github.com/qctrl/python-pyquil"},
     author='Q-CTRL',
     author_email='support@q-ctrl.com',
@@ -36,6 +36,6 @@ setup(
     packages=['qctrlpyquil'],
     package_dir={"": "."},
     package_data={},
-    install_requires=['numpy==1.*,>=1.16.0', 'pyquil==2.*,>=2.9.0', 'qctrl-open-controls==9.*,>=9.0.0', 'scipy==1.*,>=1.3.0', 'toml==0.*,>=0.10.0'],
-    extras_require={"dev": ["nbval==0.*,>=0.9.5", "pylama", "pylint", "pylint-runner", "pytest", "qctrl-visualizer==2.*,>=2.1.0", "sphinx==2.*,>=2.2.0"]},
+    install_requires=['numpy==1.*,>=1.16.0', 'pyquil==2.*,>=2.9.0', 'qctrl-open-controls==9.*,>=9.1.1', 'scipy==1.*,>=1.3.0', 'toml==0.*,>=0.10.0'],
+    extras_require={"dev": ["nbval==0.*,>=0.9.5", "pylama", "pylint", "pylint-runner", "pytest", "qctrl-visualizer==3.*,>=3.3.0", "sphinx==2.*,>=2.2.0"]},
 )
