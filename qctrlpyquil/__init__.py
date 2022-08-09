@@ -18,7 +18,7 @@ qctrlpyquil
 ===========
 """
 
-__version__ = "0.0.5"
+__version__ = "0.0.6"
 
 from .program import convert_dds_to_pyquil_program
 
