@@ -19,13 +19,17 @@ pyquil.program
 """
 
 import numpy as np
-
 from pyquil import Program
-from pyquil.gates import I, RX, RY, RZ, MEASURE
+from pyquil.gates import (
+    MEASURE,
+    RX,
+    RY,
+    RZ,
+    I,
+)
 from pyquil.quil import Pragma
 
 from qctrlopencontrols import DynamicDecouplingSequence
-
 from qctrlopencontrols.exceptions import ArgumentsValueError
 
 FIX_DURATION_UNITARY = "fixed duration unitary"
@@ -120,9 +124,7 @@ def convert_dds_to_pyquil_program(
 
     if algorithm not in [FIX_DURATION_UNITARY, INSTANT_UNITARY]:
         raise ArgumentsValueError(
-            "Algorithm must be one of {} or {}".format(
-                INSTANT_UNITARY, FIX_DURATION_UNITARY
-            ),
+            f"Algorithm must be one of {INSTANT_UNITARY} or {FIX_DURATION_UNITARY}",
             {"algorithm": algorithm},
         )
 
