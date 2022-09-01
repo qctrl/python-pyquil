@@ -47,21 +47,20 @@ git clone git@github.com:qctrl/python-pyquil.git
 
 Once the clone is complete, you have two options:
 
-1. Using setup.py
+1. Using pip
 
    ```shell
    cd python-pyquil
-   python setup.py develop
+   poetry export --dev -f requirements.txt --output requirements.txt --without-hashes
+   pip install -r requirements.txt
+   pip install -e .
    ```
-
-   **Note:** We recommend installing using `develop` to point your installation
-   at the source code in the directory where you cloned the repository.
 
 1. Using Poetry
 
    ```shell
    cd python-pyquil
-   ./setup-poetry.sh
+   poetry install
    ```
 
    **Note:** if you are on Windows, you'll need to install

@@ -19,12 +19,15 @@ Tests conversion to PyQuil program
 """
 
 import numpy as np
-
-from pyquil.gates import RX, RY, RZ, I
+from pyquil.gates import (
+    RX,
+    RY,
+    RZ,
+    I,
+)
 from pyquil.quil import Pragma
 
 from qctrlopencontrols import DynamicDecouplingSequence
-
 from qctrlpyquil import convert_dds_to_pyquil_program
 
 
