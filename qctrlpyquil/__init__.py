@@ -27,5 +27,5 @@ __all__ = ["convert_dds_to_pyquil_program"]
 raise Warning(
     "⚠️ (DEPRECATED) This package has been deprecated ⚠️\n"
     "Visit https://docs.q-ctrl.com for updated information about"
-    "how to integrate Q-CTRL software with PyQuil."
+    " how to integrate Q-CTRL software with PyQuil."
 )
