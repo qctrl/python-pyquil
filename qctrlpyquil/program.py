@@ -35,7 +35,7 @@ from qctrlopencontrols.exceptions import ArgumentsValueError
 FIX_DURATION_UNITARY = "fixed duration unitary"
 INSTANT_UNITARY = "instant unitary"
 
-raise DeprecationWarning(
+raise Warning(
     "⚠️ (DEPRECATED) This package has been deprecated ⚠️\n"
     "For updated information about how to integrate Q-CTRL software with PyQuil, "
     "visit https://docs.q-ctrl.com"

@@ -50,7 +50,7 @@ def test_pyquil_program():
         detuning_rotations=_detuning_rotations,
     )
 
-    with pytest.raises(DeprecationWarning):
+    with pytest.raises(Warning):
         from qctrlpyquil import convert_dds_to_pyquil_program
         program = convert_dds_to_pyquil_program(sequence, [0], gate_time=1e-6)
 
