@@ -20,13 +20,11 @@ qctrlpyquil
 
 __version__ = "0.0.8"
 
-from warnings import warn
-
 from .program import convert_dds_to_pyquil_program
 
 __all__ = ["convert_dds_to_pyquil_program"]
 
-warn(
+raise DeprecationWarning(
     "⚠️ (DEPRECATED) This package has been deprecated ⚠️\n"
     "For updated information about how to integrate Q-CTRL software with PyQuil, "
     "visit https://docs.q-ctrl.com"

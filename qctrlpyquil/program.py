@@ -35,6 +35,11 @@ from qctrlopencontrols.exceptions import ArgumentsValueError
 FIX_DURATION_UNITARY = "fixed duration unitary"
 INSTANT_UNITARY = "instant unitary"
 
+raise DeprecationWarning(
+    "⚠️ (DEPRECATED) This package has been deprecated ⚠️\n"
+    "For updated information about how to integrate Q-CTRL software with PyQuil, "
+    "visit https://docs.q-ctrl.com"
+)
 
 def convert_dds_to_pyquil_program(
     dynamic_decoupling_sequence,
