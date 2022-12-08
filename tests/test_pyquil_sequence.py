@@ -26,9 +26,9 @@ from pyquil.gates import (
     I,
 )
 from pyquil.quil import Pragma
+import pytest
 
 from qctrlopencontrols import DynamicDecouplingSequence
-from qctrlpyquil import convert_dds_to_pyquil_program
 
 
 def test_pyquil_program():
@@ -50,20 +50,22 @@ def test_pyquil_program():
         detuning_rotations=_detuning_rotations,
     )
 
-    program = convert_dds_to_pyquil_program(sequence, [0], gate_time=1e-6)
+    with pytest.raises(Warning):
+        from qctrlpyquil import convert_dds_to_pyquil_program
+        program = convert_dds_to_pyquil_program(sequence, [0], gate_time=1e-6)
 
-    assert len(program) == 13
-    assert program[0] == Pragma("PRESERVE_BLOCK")
-    assert program[-1] == Pragma("END_PRESERVE_BLOCK")
-    assert program[1] == RX(np.pi / 2, 0)
-    assert program[2] == I(0)
-    assert program[3] == RX(np.pi / 2, 0)
-    assert program[4] == I(0)
-    assert program[5] == RY(np.pi, 0)
-    assert program[6] == I(0)
-    assert program[7] == RZ(np.pi, 0)
-    assert program[8] == I(0)
-    assert program[9] == RX(np.pi / 2, 0)
+        assert len(program) == 13
+        assert program[0] == Pragma("PRESERVE_BLOCK")
+        assert program[-1] == Pragma("END_PRESERVE_BLOCK")
+        assert program[1] == RX(np.pi / 2, 0)
+        assert program[2] == I(0)
+        assert program[3] == RX(np.pi / 2, 0)
+        assert program[4] == I(0)
+        assert program[5] == RY(np.pi, 0)
+        assert program[6] == I(0)
+        assert program[7] == RZ(np.pi, 0)
+        assert program[8] == I(0)
+        assert program[9] == RX(np.pi / 2, 0)
 
 
 if __name__ == "__main__":
