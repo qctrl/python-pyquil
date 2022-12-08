@@ -37,8 +37,8 @@ INSTANT_UNITARY = "instant unitary"
 
 raise Warning(
     "⚠️ (DEPRECATED) This package has been deprecated ⚠️\n"
-    "For updated information about how to integrate Q-CTRL software with PyQuil, "
-    "visit https://docs.q-ctrl.com"
+    "Visit https://docs.q-ctrl.com for updated information about"
+    "how to integrate Q-CTRL software with PyQuil."
 )
 
 def convert_dds_to_pyquil_program(
